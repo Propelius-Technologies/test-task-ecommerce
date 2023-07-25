@@ -1,4 +1,3 @@
-import React from "react";
 import MainSection from "./MainSection";
 import BuySection from "./BuySection";
 import ProductSection from "./ProductSection";

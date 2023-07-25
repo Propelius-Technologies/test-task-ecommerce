@@ -1,6 +1,7 @@
 import { BuyCard } from "@/components/card";
 import Section from "@/components/section";
-import { Box, Grid, Stack } from "@mui/material";
+import { buyProduct } from "@/constant";
+import { Grid, Stack } from "@mui/material";
 
 const BuySection = () => {
   return (
@@ -12,7 +13,7 @@ const BuySection = () => {
           gap={2}
           mb={4}
           sx={{
-            px: { xs: 5, sm: 10, md: 25 },
+            px: { xs: 0, sm: 10, md: 25 },
           }}
         >
           <h2>Welcome to store</h2>
@@ -23,16 +24,12 @@ const BuySection = () => {
             totam ad provident.
           </p>
         </Stack>
-        <Grid container spacing={4}>
-          <Grid item sm={12} md={4}>
-            <BuyCard />
-          </Grid>
-          <Grid item sm={12} md={4}>
-            <BuyCard />
-          </Grid>
-          <Grid item sm={12} md={4}>
-            <BuyCard />
-          </Grid>
+        <Grid container spacing={4} justifyContent={"center"}>
+          {buyProduct.map((_) => (
+            <Grid item xs={12} sm={6} md={4} key={_.id}>
+              <BuyCard {..._} />
+            </Grid>
+          ))}
         </Grid>
       </Section>
     </>
