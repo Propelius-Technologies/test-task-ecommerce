@@ -1,11 +1,21 @@
-import { Cart } from "@/assets/svg";
-import { useAppSelector } from "@/hooks/useAddToCart";
-import { Box } from "@mui/material";
+import {Cart} from "@/assets/svg";
+import {useAppSelector} from "@/hooks/useAddToCart";
+import {Box} from "@mui/material";
 import Link from "next/link";
-import React from "react";
+import React, {useState} from "react";
+import Sidebar from "@/components/side-bar/Sidebar";
 
 const Header = () => {
   const total = useAppSelector((state) => state.addToCart.total);
+  const [openCart, setOpenCart] = useState<boolean>(false);
+  const handleOpenSidebar = () => {
+    setOpenCart(true);
+  }
+
+  const closeCart = () => {
+    setOpenCart(false);
+  }
+
   return (
     <>
       <header
@@ -35,7 +45,7 @@ const Header = () => {
                 ul: {
                   display: "flex",
                   alignItems: "center",
-                  gap: { md: "130px", xs: "30px" },
+                  gap: {md: "130px", xs: "30px"},
                   a: {
                     color: "#000",
                   },
@@ -44,8 +54,8 @@ const Header = () => {
                   },
                 },
                 svg: {
-                  height: { md: "30px", xs: "20px" },
-                  width: { md: "30px", xs: "20px" },
+                  height: {md: "30px", xs: "20px"},
+                  width: {md: "30px", xs: "20px"},
                 },
               }}
             >
@@ -76,7 +86,8 @@ const Header = () => {
                           {total > 99 ? "99+" : total}
                         </span>
                       )}
-                      <Cart />
+                      <Cart onClick={handleOpenSidebar}/>
+                      <Sidebar isOpen={openCart} close={closeCart}/>
                     </Box>
                   </li>
                 </ul>
