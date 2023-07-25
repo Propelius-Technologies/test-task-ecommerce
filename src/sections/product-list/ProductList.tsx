@@ -1,42 +1,38 @@
-import {Box} from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import ProductCard from "@/sections/product-list/ProductCard";
-import {useEffect, useState} from "react";
-import {getAllProduct} from "@/services/product.services";
-import {ProductType} from "@/types/product.types";
+import { useEffect, useState } from "react";
+import { getAllProduct } from "@/services/product.services";
+import { ProductType } from "@/types/product.types";
 
 const ProductList = () => {
   const [productList, setProductList] = useState<ProductType[] | null>(null);
+  const [loader, setLoader] = useState(false);
 
   const getProduct = async () => {
-    const product = await getAllProduct()
-    console.log({product});
-    setProductList(product.data);
-  }
+    const product = await getAllProduct();
+    setProductList(product?.data as ProductType[]);
+    setLoader(false);
+  };
 
   useEffect(() => {
-    getProduct().then()
-  }, [])
+    setLoader(true);
+    getProduct().then();
+  }, []);
 
   return (
     <Box className={"container"}>
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          gap: "20px",
-          flexWrap: "wrap",
-          marginTop: "20px"
-        }}
-      >
-        {productList?.length > 0 && productList?.map((item, index) => {
-          return (
-            <ProductCard key={index} productData={item}/>
-          )
-        })}
-      </Box>
+      <h2>Product</h2>
+      <Grid container spacing={2} my={10}>
+        {productList &&
+          productList?.length &&
+          productList?.map((item) => (
+            <Grid item key={item.id} md={3} xs={6}>
+              <ProductCard productData={item} />
+            </Grid>
+          ))}
+      </Grid>
     </Box>
-  )
-}
+  );
+};
 
-export default ProductList
+export default ProductList;

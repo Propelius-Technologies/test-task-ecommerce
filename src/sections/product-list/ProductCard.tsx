@@ -10,8 +10,8 @@ interface ProductCardProps {
 const ProductCard: React.FC<ProductCardProps> = ({productData}) => {
   return (
     <Box sx={{
-      height: "400px",
-      width: "300px",
+      // height: "400px",
+      // width: "300px",
       display: "flex",
       justifyContent: "start",
       alignItems: "center",
