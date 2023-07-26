@@ -132,7 +132,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, close }) => {
           <Box
             sx={{
               px: "20px",
-              height: "70vh",
+              height: {xs : "62vh" , md :"70vh"},
               overflow: "auto",
             }}
           >
@@ -150,58 +150,61 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, close }) => {
               </Box>
             )}
           </Box>
-
-          <Divider sx={{ mb: 1 }} />
-          <Box px={2}>
-            <Typography
-              variant="h6"
-              sx={{
-                color: "#ff4c3b",
-                fontWeight: "600",
-                fontFamily: "Poppins",
-                textTransform: "uppercase",
-              }}
-            >
-              Order Summary
-            </Typography>
-            <Box
-              display={"flex"}
-              justifyContent={"space-between"}
-              gap={"10px"}
-              my={2}
-            >
-              <Typography
-                variant="body1"
-                sx={{
-                  fontWeight: 600,
-                }}
-              >
-                Sub Total:
-              </Typography>
-              <Typography
-                variant="body1"
-                sx={{
-                  fontWeight: 600,
-                }}
-              >
-                $ {price.toFixed(2)}
-              </Typography>
-            </Box>
-            <Button
-              variant="contained"
-              fullWidth
-              sx={{
-                my: 2,
-                fontWeight: 600,
-                background: "#363131",
-                "&:hover": { background: "#4e4141" },
-              }}
-              disabled={!cart?.length}
-              onClick={() => handleOrder()}
-            >
-              Order Now
-            </Button>
-          </Box>
+          {!!cartProductList?.length && (
+            <>
+              <Divider sx={{ mb: 1 }} />
+              <Box px={2}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    color: "#ff4c3b",
+                    fontWeight: "600",
+                    fontFamily: "Poppins",
+                    textTransform: "uppercase",
+                  }}
+                >
+                  Order Summary
+                </Typography>
+                <Box
+                  display={"flex"}
+                  justifyContent={"space-between"}
+                  gap={"10px"}
+                  my={2}
+                >
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      fontWeight: 600,
+                    }}
+                  >
+                    Sub Total:
+                  </Typography>
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      fontWeight: 600,
+                    }}
+                  >
+                    $ {price.toFixed(2)}
+                  </Typography>
+                </Box>
+                <Button
+                  variant="contained"
+                  fullWidth
+                  sx={{
+                    my: 2,
+                    fontWeight: 600,
+                    background: "#363131",
+                    "&:hover": { background: "#4e4141" },
+                  }}
+                  disabled={!cart?.length}
+                  onClick={() => handleOrder()}
+                >
+                  Order Now
+                </Button>
+              </Box>
+            </>
+          )}
         </Box>
       </Drawer>
     </>
