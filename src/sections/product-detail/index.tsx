@@ -1,4 +1,3 @@
-import CartCard from "@/components/card/CartCard";
 import CartBtn from "@/components/cart/CartBtn";
 import Rating from "@/components/pdp/Rating";
 import Section from "@/components/section";
@@ -109,7 +108,6 @@ const ProductDetail = () => {
             </Grid>
           </Grid>
         )}
-        {product && <CartCard product={product} />}
       </Section>
     </>
   );
