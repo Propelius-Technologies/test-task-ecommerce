@@ -8,7 +8,7 @@ const HomePage = () => {
   return (
     <>
       <Head>
-        <title>ECommerce | Home page</title>
+        <title>eCommerce | Home page</title>
       </Head>
       <MainSection />
       <BuySection />

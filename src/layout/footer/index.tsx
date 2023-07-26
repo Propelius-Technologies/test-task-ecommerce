@@ -17,7 +17,7 @@ const Footer = () => {
               <Stack gap={2}>
                 <div className="logo">
                   <Link href={"/"}>
-                    <h3 className="prime-color">ECommerce</h3>
+                    <h3 className="prime-color">eCommerce</h3>
                   </Link>
                 </div>
                 <p>

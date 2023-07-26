@@ -66,7 +66,7 @@ const ProductSection = () => {
               router.push(`/product`)
             }}
           >
-            All product
+            All products
           </Button>
         </Stack>
       </Section>

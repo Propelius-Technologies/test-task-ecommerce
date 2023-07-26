@@ -16,7 +16,7 @@ const CartCard = ({ product }: CartCardType) => {
   const dispatch = useDispatch();
   const cart = useAppSelector((state) => state.addToCart.cart);
   return (
-    <Stack py={2} borderBottom={"1px solid #eee"}>
+    <Stack py={2} borderBottom={"1px solid rgba(0, 0, 0, 0.12)"}>
       <Stack justifyContent={"flex-end"} textAlign={"end"} alignItems={"end"}>
         <DeleteIcon
           sx={{ cursor: "pointer", mb: 2 }}
@@ -51,7 +51,7 @@ const CartCard = ({ product }: CartCardType) => {
                 marginTop: "auto",
               }}
             >
-              <b>Price</b> : $ {product?.price}
+              <b>Price</b> : ${product?.price}
             </p>
             <Box>
               <CartBtn

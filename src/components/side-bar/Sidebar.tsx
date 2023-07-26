@@ -185,7 +185,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, close }) => {
                       fontWeight: 600,
                     }}
                   >
-                    $ {price.toFixed(2)}
+                    ${price.toFixed(2)}
                   </Typography>
                 </Box>
                 <Button
