@@ -1,38 +1,39 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# E-Commerce Website
 
-## Getting Started
+## Overview
 
-First, run the development server:
+This is an e-commerce website built using Next.js, fetching data from the Fake Store API. The website allows users to browse products, view product details, add products to the cart, and complete a purchase
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Responsive design for all screen sizes starting from 320px width.
+- Navbar with links to the Home and Products pages.
+- A banner section to display store information.
+- Product listing page showing product images, titles, and prices.
+- Product detail page with detailed product information, including an "Add to cart" button.
+- Side cart functionality to manage cart items, including quantity selectors and a total sum of products.
+- Successful checkout message displayed when the purchase is complete.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Tech Stack
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+- Next.js
+- TypeScript
+- Material UI
+- axios
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Setup and Installation
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. Clone the repository from GitHub URL.
+2. Install dependencies using `npm install` or `yarn install`.
+3. Start the development server with `npm run dev` or `yarn dev`.
+4. Open the application in your browser at http://localhost:3000.
 
-## Learn More
+## Usage
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Visit the Home page at http://localhost:3000 to view basic store information.
+- Click on the "Products" link in the Navbar to browse all available products on the Product Listing Page.
+- Click on a product to view its detailed information on the Product Detail Page.
+- On the Product Detail Page, click the "Add to cart" button to add the product to the Side Cart.
+- In the Side Cart, you can adjust the quantity of items or remove them using the (+), (-), and (X) buttons.
+- The total sum of products added to the cart is displayed in the cart.
+- When you are ready to check out, click the "Order now" button in the cart to complete your purchase.

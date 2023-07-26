@@ -1,12 +1,15 @@
-import React from "react";
 import MainSection from "./MainSection";
 import BuySection from "./BuySection";
 import ProductSection from "./ProductSection";
 import AboutSection from "./AboutSection";
+import Head from "next/head";
 
 const HomePage = () => {
   return (
     <>
+      <Head>
+        <title>ECommerce | Home page</title>
+      </Head>
       <MainSection />
       <BuySection />
       <ProductSection />

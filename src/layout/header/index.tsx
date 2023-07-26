@@ -2,10 +2,20 @@ import { Cart } from "@/assets/svg";
 import { useAppSelector } from "@/hooks/useAddToCart";
 import { Box } from "@mui/material";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
+import Sidebar from "@/components/side-bar/Sidebar";
 
 const Header = () => {
   const total = useAppSelector((state) => state.addToCart.total);
+  const [openCart, setOpenCart] = useState<boolean>(false);
+  const handleOpenSidebar = () => {
+    setOpenCart(true);
+  };
+
+  const closeCart = () => {
+    setOpenCart(false);
+  };
+
   return (
     <>
       <header
@@ -52,10 +62,16 @@ const Header = () => {
               <nav>
                 <ul>
                   <li>
-                    <Link href="/product">Product</Link>
+                    <Link href="/product">Products</Link>
                   </li>
                   <li>
-                    <Box position={"relative"}>
+                    <Box
+                      position={"relative"}
+                      sx={{
+                        cursor: "pointer",
+                      }}
+                      onClick={handleOpenSidebar}
+                    >
                       {!!total && (
                         <span
                           style={{
@@ -64,13 +80,14 @@ const Header = () => {
                             width: total > 99 ? "30px" : "25px",
                             borderRadius: "50%",
                             position: "absolute",
-                            background: "#237943",
+                            background: "#ff4c3b",
                             fontSize: "14px",
                             lineHeight: "16px",
                             textAlign: "center",
                             top: "0",
                             right: "0",
                             transform: "translate(50%, -50%)",
+                            fontWeight: 600,
                           }}
                         >
                           {total > 99 ? "99+" : total}
@@ -85,6 +102,7 @@ const Header = () => {
           </Box>
         </div>
       </header>
+      <Sidebar isOpen={openCart} close={closeCart} />
     </>
   );
 };
