@@ -74,7 +74,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, close }) => {
       dispatch(placeOrder());
       setConfirm(false);
       close();
-      router.back();
+      router.push("/");
     }, 2000);
   };
 
@@ -132,7 +132,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, close }) => {
           <Box
             sx={{
               px: "20px",
-              height: {xs : "62vh" , md :"70vh"},
+              height: { xs: "62vh", md: "70vh" },
               overflow: "auto",
             }}
           >
