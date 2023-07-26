@@ -37,6 +37,7 @@ const MainSection = () => {
               flexDirection: "column",
               gap: 2,
               height: "100%",
+              textAlign: "center",
             }}
           >
             <h1>Looking for Good Quality Clothes</h1>
