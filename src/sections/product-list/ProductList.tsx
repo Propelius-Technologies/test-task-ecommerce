@@ -3,6 +3,7 @@ import ProductCard from "@/sections/product-list/ProductCard";
 import { useEffect, useState } from "react";
 import { getAllProduct } from "@/services/product.services";
 import { ProductType } from "@/types/product.types";
+import Loader from "@/components/loader/Loader";
 
 const ProductList = () => {
   const [productList, setProductList] = useState<ProductType[] | null>(null);
@@ -23,7 +24,7 @@ const ProductList = () => {
     <Box className={"container"}>
       <h2>Product</h2>
       {loader ? (
-        <></>
+        <Loader />
       ) : (
         <Grid container spacing={4} my={10}>
           {productList &&

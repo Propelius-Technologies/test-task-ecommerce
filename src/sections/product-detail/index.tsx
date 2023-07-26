@@ -1,10 +1,10 @@
 import CartBtn from "@/components/cart/CartBtn";
-import Rating from "@/components/pdp/Rating";
+import Loader from "@/components/loader/Loader";
 import Section from "@/components/section";
 import { useAppSelector } from "@/hooks/useAddToCart";
 import { getProductById } from "@/services/product.services";
 import { ProductType } from "@/types/product.types";
-import { Box, Chip, Grid, Stack } from "@mui/material";
+import { Box, Chip, Grid, Rating, Stack } from "@mui/material";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
@@ -30,10 +30,10 @@ const ProductDetail = () => {
 
   return (
     <>
-      <Section>
-        {loader ? (
-          <></>
-        ) : (
+      {loader ? (
+        <Loader />
+      ) : (
+        <Section>
           <Grid container spacing={4}>
             <Grid item xs={12} sm={6}>
               <Box>
@@ -79,11 +79,17 @@ const ProductDetail = () => {
                   <Stack
                     flexDirection={"row"}
                     gap={2}
-                    alignContent={"center"}
                     justifyContent={"center"}
+                    alignItems={"center"}
                   >
                     {product?.rating.rate && (
-                      <Rating rating={product?.rating.rate} />
+                      <Rating
+                        readOnly
+                        name="half-rating"
+                        defaultValue={product?.rating.rate}
+                        precision={0.1}
+                        size="small"
+                      />
                     )}
                     <p>{product?.rating.count} rating</p>
                   </Stack>
@@ -107,8 +113,8 @@ const ProductDetail = () => {
               </Stack>
             </Grid>
           </Grid>
-        )}
-      </Section>
+        </Section>
+      )}
     </>
   );
 };

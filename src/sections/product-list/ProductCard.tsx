@@ -3,7 +3,7 @@ import Image from "next/image";
 import { ProductType } from "@/types/product.types";
 import React from "react";
 import Link from "next/link";
-import Rating from "@/components/pdp/Rating";
+import Rating from "@mui/material/Rating";
 
 interface ProductCardProps {
   productData: ProductType;
@@ -58,7 +58,16 @@ const ProductCard: React.FC<ProductCardProps> = ({ productData }) => {
               justifyContent={"space-between"}
             >
               {productData?.rating.rate && (
-                <Rating rating={productData?.rating.rate} />
+                <>
+                  <Rating
+                    sx={{ alignItems: "center" }}
+                    readOnly
+                    name="half-rating"
+                    defaultValue={productData?.rating.rate}
+                    precision={0.1}
+                    size="small"
+                  />
+                </>
               )}
               <p>{productData?.rating.count} rating</p>
             </Stack>

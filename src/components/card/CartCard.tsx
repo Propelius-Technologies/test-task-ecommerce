@@ -5,17 +5,25 @@ import React from "react";
 import CartBtn from "../cart/CartBtn";
 import { useAppSelector } from "@/hooks/useAddToCart";
 import { Close } from "@mui/icons-material";
+import { useDispatch } from "react-redux";
+import { deleteItemFromCart } from "@/redux/addToCart";
 
 interface CartCardType {
   product: ProductType;
 }
 
 const CartCard = ({ product }: CartCardType) => {
+  const dispatch = useDispatch();
   const cart = useAppSelector((state) => state.addToCart.cart);
   return (
     <Stack my={2}>
       <Stack justifyContent={"flex-end"} textAlign={"end"} alignItems={"end"}>
-        <Close sx={{ cursor: "pointer" }} />
+        <Close
+          sx={{ cursor: "pointer" }}
+          onClick={() => {
+            dispatch(deleteItemFromCart(product.id));
+          }}
+        />
       </Stack>
       <Grid container spacing={2} alignItems={"center"}>
         <Grid item xs={4}>
