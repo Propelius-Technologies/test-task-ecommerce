@@ -37,7 +37,7 @@ const Header = () => {
           >
             <div className="logo">
               <Link href={"/"} className="prime-color">
-                ECommerce
+                eCommerce
               </Link>
             </div>
             <Box

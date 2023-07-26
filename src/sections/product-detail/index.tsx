@@ -32,7 +32,7 @@ const ProductDetail = () => {
   return (
     <>
       <Head>
-        <title>ECommerce | {product?.title}</title>
+        <title>eCommerce | {product?.title}</title>
       </Head>
       {loader ? (
         <Loader />
@@ -103,7 +103,7 @@ const ProductDetail = () => {
                 <p>{product?.description}</p>
                 <Stack gap={2}>
                   <p>
-                    <b>Price</b> : $ {product?.price}
+                    <b>Price</b> : ${product?.price}
                   </p>
                   <Box>
                     <CartBtn

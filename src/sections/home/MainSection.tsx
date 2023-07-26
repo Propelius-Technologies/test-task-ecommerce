@@ -56,7 +56,7 @@ const MainSection = () => {
                 router.push(`/product`);
               }}
             >
-              All product
+              All products
             </Button>
           </Box>
         </Box>

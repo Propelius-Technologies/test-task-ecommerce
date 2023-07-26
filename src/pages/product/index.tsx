@@ -9,7 +9,7 @@ const product = () => {
       width: "100%"
     }}>
       <Head>
-        <title>ECommerce | Products</title>
+        <title>eCommerce | Products</title>
       </Head>
       <ProductListSlider/>
       <ProductList/>
