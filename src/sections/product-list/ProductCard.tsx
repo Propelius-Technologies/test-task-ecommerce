@@ -19,8 +19,6 @@ const ProductCard: React.FC<ProductCardProps> = ({ productData }) => {
     >
       <Box
         sx={{
-          // height: "400px",
-          // width: "300px",
           display: "flex",
           justifyContent: "start",
           alignItems: "center",

@@ -4,7 +4,7 @@ import Image from "next/image";
 import React from "react";
 import CartBtn from "../cart/CartBtn";
 import { useAppSelector } from "@/hooks/useAddToCart";
-import { Close } from "@mui/icons-material";
+import DeleteIcon from "@mui/icons-material/Delete";
 import { useDispatch } from "react-redux";
 import { deleteItemFromCart } from "@/redux/addToCart";
 
@@ -16,10 +16,10 @@ const CartCard = ({ product }: CartCardType) => {
   const dispatch = useDispatch();
   const cart = useAppSelector((state) => state.addToCart.cart);
   return (
-    <Stack my={2}>
+    <Stack py={2} borderBottom={"1px solid #eee"}>
       <Stack justifyContent={"flex-end"} textAlign={"end"} alignItems={"end"}>
-        <Close
-          sx={{ cursor: "pointer" }}
+        <DeleteIcon
+          sx={{ cursor: "pointer", mb: 2 }}
           onClick={() => {
             dispatch(deleteItemFromCart(product.id));
           }}

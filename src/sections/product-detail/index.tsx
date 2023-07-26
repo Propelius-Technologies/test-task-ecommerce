@@ -5,6 +5,7 @@ import { useAppSelector } from "@/hooks/useAddToCart";
 import { getProductById } from "@/services/product.services";
 import { ProductType } from "@/types/product.types";
 import { Box, Chip, Grid, Rating, Stack } from "@mui/material";
+import Head from "next/head";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
@@ -30,6 +31,9 @@ const ProductDetail = () => {
 
   return (
     <>
+      <Head>
+        <title>ECommerce | {product?.title}</title>
+      </Head>
       {loader ? (
         <Loader />
       ) : (
@@ -63,6 +67,7 @@ const ProductDetail = () => {
                   alignContent={"center"}
                   justifyContent={"space-between"}
                   flexWrap={"wrap"}
+                  gap={2}
                 >
                   <Chip
                     label={product?.category}

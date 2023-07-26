@@ -4,6 +4,7 @@ import HOME_COL_ONE from "@/assets/image/buy-five.jpg"
 import HOME_COL_TWO from "@/assets/image/collect-point.jpg"
 import HOME_COL_THREE from "@/assets/image/column-three.jpg"
 import HERO_IMAGE_JPG from "@/assets/image/hero.jpg";
+import CONFIRM from "./image/confirm.gif";
 
 export const assets = {
   images: {
@@ -12,6 +13,7 @@ export const assets = {
     ABOUT_IMAGE,
     HOME_COL_ONE,
     HOME_COL_TWO,
-    HOME_COL_THREE
+    HOME_COL_THREE,
+    CONFIRM
   },
 };
