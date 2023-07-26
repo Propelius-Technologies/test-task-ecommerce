@@ -13,7 +13,7 @@ const Header = () => {
   };
 
   const closeCart = () => {
-    setOpenCart(false);  
+    setOpenCart(false);
   };
 
   return (
@@ -62,7 +62,7 @@ const Header = () => {
               <nav>
                 <ul>
                   <li>
-                    <Link href="/product">Product</Link>
+                    <Link href="/product">Products</Link>
                   </li>
                   <li>
                     <Box
@@ -70,6 +70,7 @@ const Header = () => {
                       sx={{
                         cursor: "pointer",
                       }}
+                      onClick={handleOpenSidebar}
                     >
                       {!!total && (
                         <span
@@ -86,14 +87,13 @@ const Header = () => {
                             top: "0",
                             right: "0",
                             transform: "translate(50%, -50%)",
-                            fontWeight : 600,
+                            fontWeight: 600,
                           }}
                         >
                           {total > 99 ? "99+" : total}
                         </span>
                       )}
-                      <Cart onClick={handleOpenSidebar} />
-                      <Sidebar isOpen={openCart} close={closeCart} />
+                      <Cart />
                     </Box>
                   </li>
                 </ul>
@@ -102,6 +102,7 @@ const Header = () => {
           </Box>
         </div>
       </header>
+      <Sidebar isOpen={openCart} close={closeCart} />
     </>
   );
 };

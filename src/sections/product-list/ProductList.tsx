@@ -22,7 +22,7 @@ const ProductList = () => {
 
   return (
     <Box className={"container"}>
-      <h2>Product</h2>
+      <h2>Products</h2>
       {loader ? (
         <Loader />
       ) : (
