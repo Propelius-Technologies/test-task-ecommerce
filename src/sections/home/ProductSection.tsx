@@ -1,12 +1,15 @@
 import Section from "@/components/section";
 import { getAllProduct } from "@/services/product.services";
 import { ProductType } from "@/types/product.types";
-import { Box, Grid, Stack } from "@mui/material";
+import { Button, Grid, Stack } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import ProductCard from "../product-list/ProductCard";
+import { useRouter } from "next/router";
 
 const ProductSection = () => {
+  const router = useRouter();
   const [productList, setProductList] = useState<ProductType[]>([]);
+
   useEffect(() => {
     getCalls();
   }, []);
@@ -42,15 +45,30 @@ const ProductSection = () => {
             totam ad provident.
           </p>
         </Stack>
-        <Grid container spacing={2}>
+        <Grid container spacing={4}>
           {productList &&
             productList?.length &&
             productList?.map((item) => (
-              <Grid item key={item.id} md={3} xs={6}>
+              <Grid item key={item.id} md={3} xs={12} sm={6}>
                 <ProductCard productData={item} />
               </Grid>
             ))}
         </Grid>
+        <Stack alignItems={"center"} my={2}>
+          <Button
+            variant="contained"
+            sx={{
+              fontWeight: "600",
+              background: "#363131",
+              "&:hover": { background: "#4e4141" },
+            }}
+            onClick={() => {
+              router.push(`/product`)
+            }}
+          >
+            All product
+          </Button>
+        </Stack>
       </Section>
     </>
   );

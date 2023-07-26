@@ -1,8 +1,10 @@
 import { assets } from "@/assets";
-import { Box } from "@mui/material";
+import { Box, Button } from "@mui/material";
+import { useRouter } from "next/router";
 import React from "react";
 
 const MainSection = () => {
+  const router = useRouter();
   return (
     <>
       <Box
@@ -42,6 +44,19 @@ const MainSection = () => {
               Lorem ipsum, dolor sit amet consectetur adipisicing elit.
               Voluptatum dolore veritatis expedita.
             </p>
+            <Button
+              variant="contained"
+              sx={{
+                fontWeight: "600",
+                background: "#363131",
+                "&:hover": { background: "#4e4141" },
+              }}
+              onClick={() => {
+                router.push(`/product`);
+              }}
+            >
+              All product
+            </Button>
           </Box>
         </Box>
       </Box>

@@ -1,59 +1,80 @@
-import {Box} from "@mui/material";
+import { Box, Stack } from "@mui/material";
 import Image from "next/image";
-import {ProductType} from "@/types/product.types";
+import { ProductType } from "@/types/product.types";
 import React from "react";
+import Link from "next/link";
+import Rating from "@/components/pdp/Rating";
 
 interface ProductCardProps {
-  productData: ProductType
+  productData: ProductType;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({productData}) => {
+const ProductCard: React.FC<ProductCardProps> = ({ productData }) => {
   return (
-    <Box sx={{
-      // height: "400px",
-      // width: "300px",
-      display: "flex",
-      justifyContent: "start",
-      alignItems: "center",
-      flexDirection: "column"
-    }}>
+    <Link
+      href={`/product/${productData.id}`}
+      style={{
+        height: "100%",
+      }}
+    >
       <Box
         sx={{
-          width: "100%",
-          paddingTop: "100%", /* 1:1 Aspect Ratio */
-          paddingX: "40px",
-          position: "relative",
+          // height: "400px",
+          // width: "300px",
+          display: "flex",
+          justifyContent: "start",
+          alignItems: "center",
+          flexDirection: "column",
+          height: "100%",
         }}
       >
-        <Image src={productData.image} alt={'product image'} fill objectFit={'contain'}/>
-      </Box>
-      <Box sx={{
-        width: "100%",
-        display: "flex"
-      }}>
-        <Box sx={{
-          display: "flex",
-          alignItems: "start",
-          flexDirection: "column",
-          padding: "10px"
-        }}>
-          <span>
-            {productData.title}
-          </span>
-          <span>
-           $ {productData.price}
-          </span>
+        <Box
+          sx={{
+            width: "100%",
+            paddingTop: "100%" /* 1:1 Aspect Ratio */,
+            paddingX: "40px",
+            position: "relative",
+          }}
+        >
+          <Image
+            src={productData.image}
+            alt={"product image"}
+            fill
+            objectFit={"contain"}
+          />
         </Box>
-        {/*<Box sx={{*/}
-        {/*  display: "flex",*/}
-        {/*  justifyContent: "center",*/}
-        {/*  alignItems: "center"*/}
-        {/*}}>*/}
-        {/*  <CartBtn/>*/}
-        {/*</Box>*/}
+        <Box
+          sx={{
+            width: "100%",
+            height: "100%",
+            display: "flex",
+          }}
+        >
+          <Stack width={"100%"} gap={2} my={2}>
+            <Stack
+              flexDirection={"row"}
+              gap={2}
+              alignContent={"center"}
+              justifyContent={"space-between"}
+            >
+              {productData?.rating.rate && (
+                <Rating rating={productData?.rating.rate} />
+              )}
+              <p>{productData?.rating.count} rating</p>
+            </Stack>
+            <span>{productData.title}</span>
+            <p
+              style={{
+                marginTop: "auto",
+              }}
+            >
+              <b>Price</b> : $ {productData?.price}
+            </p>
+          </Stack>
+        </Box>
       </Box>
-    </Box>
-  )
-}
+    </Link>
+  );
+};
 
-export default ProductCard
+export default ProductCard;

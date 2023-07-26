@@ -1,8 +1,8 @@
-import {Cart} from "@/assets/svg";
-import {useAppSelector} from "@/hooks/useAddToCart";
-import {Box} from "@mui/material";
+import { Cart } from "@/assets/svg";
+import { useAppSelector } from "@/hooks/useAddToCart";
+import { Box } from "@mui/material";
 import Link from "next/link";
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Sidebar from "@/components/side-bar/Sidebar";
 
 const Header = () => {
@@ -10,11 +10,11 @@ const Header = () => {
   const [openCart, setOpenCart] = useState<boolean>(false);
   const handleOpenSidebar = () => {
     setOpenCart(true);
-  }
+  };
 
   const closeCart = () => {
     setOpenCart(false);
-  }
+  };
 
   return (
     <>
@@ -45,7 +45,7 @@ const Header = () => {
                 ul: {
                   display: "flex",
                   alignItems: "center",
-                  gap: {md: "130px", xs: "30px"},
+                  gap: { md: "130px", xs: "30px" },
                   a: {
                     color: "#000",
                   },
@@ -54,8 +54,8 @@ const Header = () => {
                   },
                 },
                 svg: {
-                  height: {md: "30px", xs: "20px"},
-                  width: {md: "30px", xs: "20px"},
+                  height: { md: "30px", xs: "20px" },
+                  width: { md: "30px", xs: "20px" },
                 },
               }}
             >
@@ -65,7 +65,12 @@ const Header = () => {
                     <Link href="/product">Product</Link>
                   </li>
                   <li>
-                    <Box position={"relative"}>
+                    <Box
+                      position={"relative"}
+                      sx={{
+                        cursor: "pointer",
+                      }}
+                    >
                       {!!total && (
                         <span
                           style={{
@@ -74,20 +79,21 @@ const Header = () => {
                             width: total > 99 ? "30px" : "25px",
                             borderRadius: "50%",
                             position: "absolute",
-                            background: "#237943",
+                            background: "#ff4c3b",
                             fontSize: "14px",
                             lineHeight: "16px",
                             textAlign: "center",
                             top: "0",
                             right: "0",
                             transform: "translate(50%, -50%)",
+                            fontWeight : 600,
                           }}
                         >
                           {total > 99 ? "99+" : total}
                         </span>
                       )}
-                      <Cart onClick={handleOpenSidebar}/>
-                      <Sidebar isOpen={openCart} close={closeCart}/>
+                      <Cart onClick={handleOpenSidebar} />
+                      <Sidebar isOpen={openCart} close={closeCart} />
                     </Box>
                   </li>
                 </ul>
