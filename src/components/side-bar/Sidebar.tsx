@@ -42,12 +42,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, close }) => {
 
   return (
     <Drawer open={isOpen} onClose={close} anchor={"right"}>
-      <Box
-        sx={{ width: { xs: "100vw", md: "600px" } }}
-        role="presentation"
-        onClick={close}
-        onKeyDown={close}
-      >
+      <Box sx={{ width: { xs: "100vw", md: "600px" } }} role="presentation">
         <Box>
           <Box
             sx={{
@@ -58,11 +53,11 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, close }) => {
             }}
           >
             <h3>Cart</h3>
-            <Close sx={{ cursor: "pointer" }} />
+            <Close sx={{ cursor: "pointer" }} onClick={close} />
           </Box>
           <Divider />
         </Box>
-        <Box>
+        <Box sx={{ p: "20px" }}>
           {cartProductList?.map((data) => (
             <Box key={data.id}>
               <CartCard product={data} />

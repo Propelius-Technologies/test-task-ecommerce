@@ -13,7 +13,7 @@ const Header = () => {
   };
 
   const closeCart = () => {
-    setOpenCart(false);
+    setOpenCart(false);  
   };
 
   return (

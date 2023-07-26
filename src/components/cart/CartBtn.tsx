@@ -21,7 +21,7 @@ const CartBtn = ({ quantity, id }: CartBtnType) => {
           }}
           onClick={() => dispatch(addItemToCart(id))}
         >
-          Order Now
+          Add to Cart
         </Button>
       ) : (
         <Box sx={{ display: "flex", gap: 1, alignItems: "center" }}>
