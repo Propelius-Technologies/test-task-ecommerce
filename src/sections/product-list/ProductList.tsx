@@ -22,15 +22,19 @@ const ProductList = () => {
   return (
     <Box className={"container"}>
       <h2>Product</h2>
-      <Grid container spacing={2} my={10}>
-        {productList &&
-          productList?.length &&
-          productList?.map((item) => (
-            <Grid item key={item.id} md={3} xs={6}>
-              <ProductCard productData={item} />
-            </Grid>
-          ))}
-      </Grid>
+      {loader ? (
+        <></>
+      ) : (
+        <Grid container spacing={4} my={10}>
+          {productList &&
+            productList?.length &&
+            productList?.map((item) => (
+              <Grid item key={item.id} md={3} xs={12} sm={6}>
+                <ProductCard productData={item} />
+              </Grid>
+            ))}
+        </Grid>
+      )}
     </Box>
   );
 };

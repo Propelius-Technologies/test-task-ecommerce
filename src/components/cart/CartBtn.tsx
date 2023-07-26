@@ -15,8 +15,9 @@ const CartBtn = ({ quantity, id }: CartBtnType) => {
         <Button
           variant="contained"
           sx={{
-            background: "#FFA500",
-            "&:hover": { background: "#FFC300" },
+            fontWeight: "600",
+            background: "#363131",
+            "&:hover": { background: "#4e4141" },
           }}
           onClick={() => dispatch(addItemToCart(id))}
         >
@@ -32,6 +33,7 @@ const CartBtn = ({ quantity, id }: CartBtnType) => {
               minWidth: "35px",
               fontSize: "25px",
               background: "#999999",
+              fontWeight: "600",
               "&:hover": { background: "#999999aa" },
             }}
           >
@@ -45,8 +47,9 @@ const CartBtn = ({ quantity, id }: CartBtnType) => {
               height: "35px",
               minWidth: "35px",
               fontSize: "25px",
-              background: "#FFA500",
-              "&:hover": { background: "#FFC300" },
+              fontWeight: "600",
+              background: "#363131",
+              "&:hover": { background: "#4e4141" },
             }}
           >
             +
