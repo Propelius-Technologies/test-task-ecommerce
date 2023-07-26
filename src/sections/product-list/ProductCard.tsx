@@ -75,7 +75,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ productData }) => {
                 marginTop: "auto",
               }}
             >
-              <b>Price</b> : $ {productData?.price}
+              <b>Price</b> : ${productData?.price}
             </p>
           </Stack>
         </Box>
